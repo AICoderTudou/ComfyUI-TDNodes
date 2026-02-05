@@ -5,5 +5,5 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "Any2ListNode": "Any to List (TD)",
+    "Any2ListNode": "Any to List (AI代码侠土豆)",
 }
