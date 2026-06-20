@@ -60,7 +60,8 @@ class TD_VideoCombine:
     RETURN_NAMES = ("filenames", "audio", "images")
     OUTPUT_NODE = True
     FUNCTION = "combine_video"
-    CATEGORY = "TDNodes"
+    CATEGORY = "TDNodes/video"
+    DESCRIPTION = "把图像序列(可选音频)用 ffmpeg 合成 mp4/gif/webp,支持音频混流。"
 
     def combine_video(
         self,

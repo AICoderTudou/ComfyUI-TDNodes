@@ -55,10 +55,13 @@ def _split_grid(img, rows, columns, trim_border):
     h, w = img.shape[0], img.shape[1]
     tile_h = h // rows
     tile_w = w // columns
+    off_y = (h - tile_h * rows) // 2   # 非整除时把余数居中分摊,而非全丢在底/右边
+    off_x = (w - tile_w * columns) // 2
     tiles = []
     for y in range(rows):
         for x in range(columns):
-            tile = img[y * tile_h:(y + 1) * tile_h, x * tile_w:(x + 1) * tile_w, :]
+            y0, x0 = off_y + y * tile_h, off_x + x * tile_w
+            tile = img[y0:y0 + tile_h, x0:x0 + tile_w, :]
             if trim_border > 0:
                 th, tw = tile.shape[0], tile.shape[1]
                 tb = min(trim_border, th // 2 - 1, tw // 2 - 1)
@@ -163,7 +166,8 @@ class TD_LTXVAddGuideFromGrid:
     RETURN_TYPES = ("CONDITIONING", "CONDITIONING", "LATENT")
     RETURN_NAMES = ("positive", "negative", "latent")
     FUNCTION = "execute"
-    CATEGORY = "TDNodes"
+    CATEGORY = "TDNodes/LTXV"
+    DESCRIPTION = "四宫格图一体化引导:输入一张网格图,内部切分→编码→给 LTX 视频 latent 追加多关键帧引导。一个节点替代 孤海分割 + ImageFromBatch + ImageResize + LTXVAddGuideMulti 整条链。"
 
     def execute(self, positive, negative, vae, latent, grid_image, columns, rows,
                 frame_indices, strengths, remove_edge=False, trim_border=0):

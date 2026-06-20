@@ -23,7 +23,8 @@ class Any2ListNode:
     RETURN_TYPES = (AlwaysEqualProxy("*"),)
     OUTPUT_IS_LIST = (True, )
     FUNCTION = "to"
-    CATEGORY = "TDNodes"
+    CATEGORY = "TDNodes/utils"
+    DESCRIPTION = "把任意输入(批次/序列)转成 ComfyUI 列表输出。"
 
     def to(self, any):
         return (list(any),)
@@ -57,7 +58,8 @@ class ParseJsonNode:
     RETURN_TYPES = (AlwaysEqualProxy("*"), "STRING", "INT", "FLOAT", "BOOLEAN")
     RETURN_NAMES = ("any", "string", "int", "float", "boolean")
     FUNCTION = "process"
-    CATEGORY = "TDNodes"
+    CATEGORY = "TDNodes/utils"
+    DESCRIPTION = "解析 JSON 字符串:支持点号取嵌套键、清理 markdown 代码块,输出 any/string/int/float/boolean。"
     
     def process(self, input, key=None, default=None):
         if isinstance(input, str):
