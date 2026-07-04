@@ -1,12 +1,29 @@
-from .nodes import Any2ListNode, ParseJsonNode, TD_VideoCombine
 from .ltxv_grid_guide import TD_LTXVAddGuideFromGrid
+from .msr_identity import TD_MSRIdentityOnly
+from .nodes import Any2ListNode, ParseJsonNode, TD_VideoCombine
 
-# 单一配置源:加/改节点只动这一处,自动生成两个 mapping(参考 KJNodes 的 NODE_CONFIG 模式)
+
 NODE_CONFIG = {
-    "Any2ListNode":            {"class": Any2ListNode,             "name": "Any to List (AI代码侠土豆)"},
-    "ParseJsonNode":           {"class": ParseJsonNode,            "name": "Parse JSON (AI代码侠土豆)"},
-    "TD_VideoCombine":         {"class": TD_VideoCombine,          "name": "Video Combine (AI代码侠土豆)"},
-    "TD_LTXVAddGuideFromGrid": {"class": TD_LTXVAddGuideFromGrid,  "name": "LTXV 四宫格引导 (AI代码侠土豆)"},
+    "Any2ListNode": {
+        "class": Any2ListNode,
+        "name": "Any to List (AI代码侠土豆)",
+    },
+    "ParseJsonNode": {
+        "class": ParseJsonNode,
+        "name": "Parse JSON (AI代码侠土豆)",
+    },
+    "TD_VideoCombine": {
+        "class": TD_VideoCombine,
+        "name": "Video Combine (AI代码侠土豆)",
+    },
+    "TD_LTXVAddGuideFromGrid": {
+        "class": TD_LTXVAddGuideFromGrid,
+        "name": "LTXV 四宫格引导 (AI代码侠土豆)",
+    },
+    "TD_MSRIdentityOnly": {
+        "class": TD_MSRIdentityOnly,
+        "name": "MSR Identity Only (AI代码侠土豆)",
+    },
 }
 
 
