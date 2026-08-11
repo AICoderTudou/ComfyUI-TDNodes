@@ -1,9 +1,15 @@
 from .ltxv_grid_guide import TD_LTXVAddGuideFromGrid
+from .gpt_image2 import TD_GPTImage2TextToImage
+from .midjourney import TD_MidjourneyTextToImage
 from .msr_identity import TD_MSRIdentityOnly
 from .nodes import Any2ListNode, ParseJsonNode, TD_VideoCombine
 
 
 NODE_CONFIG = {
+    "TD_GPTImage2TextToImage": {
+        "class": TD_GPTImage2TextToImage,
+        "name": "TD GPT Image2 Text to Image",
+    },
     "Any2ListNode": {
         "class": Any2ListNode,
         "name": "Any to List (AI代码侠土豆)",
@@ -23,6 +29,10 @@ NODE_CONFIG = {
     "TD_MSRIdentityOnly": {
         "class": TD_MSRIdentityOnly,
         "name": "MSR Identity Only (AI代码侠土豆)",
+    },
+    "TD_MidjourneyTextToImage": {
+        "class": TD_MidjourneyTextToImage,
+        "name": "TD Midjourney Text to Image",
     },
 }
 

@@ -3,7 +3,7 @@ name = "comfyui-tdnodes"
 description = "AICoderTudou (土豆) custom nodes for ComfyUI — LTX-2.3 四宫格漫剧 helpers: grid guide, video combine, JSON parse, any-to-list."
 version = "1.0.0"
 license = { text = "MIT" }
-dependencies = ["imageio-ffmpeg"]
+dependencies = ["imageio-ffmpeg", "requests"]
 
 [project.urls]
 Repository = "https://github.com/AICoderTudou/ComfyUI-TDNodes"

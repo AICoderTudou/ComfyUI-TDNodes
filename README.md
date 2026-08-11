@@ -5,6 +5,32 @@ ComfyUI 自定义节点合集。
 
 ## Update Log / 更新日志
 
+## Aitudou API
+
+The TD image-generation nodes use the official [Aitudou API](https://api.aitudou.net/). Create and manage your API key from the official site before using these nodes.
+
+## TD Midjourney Text to Image
+
+`TD Midjourney Text to Image` uses the [official Aitudou API](https://api.aitudou.net/) Midjourney flow:
+`POST /v1/midjourney/generations` followed by `GET /v1/midjourney/tasks/{task_id}` polling.
+
+- Enter an Aitudou API key in `api_key`.
+- The node uses `https://api.aitudou.net` with the built-in polling settings.
+- The only generation controls are a common-ratio dropdown and `version`.
+- It returns only a ComfyUI `IMAGE` batch.
+
+## TD GPT Image2 Text to Image
+
+`TD GPT Image2 Text to Image` uses [Aitudou API](https://api.aitudou.net/) model `aitudou-image-g-v2-lowprice` through `POST /v1/image/generations`.
+
+- Inputs: `prompt`, `api_key`, an aspect-ratio dropdown, and resolution (`1k`, `2k`, or `4k`).
+- Returns an `IMAGE` batch after polling the image task to completion.
+
+More details: [TD image node guide](docs/td-image-nodes.md).
+
+### 2026-08-11
+- **English**: Added **TD Midjourney Text to Image** (`TD_MidjourneyTextToImage`). It submits an Aitudou Midjourney Imagine task, polls it to completion, and returns the results as a ComfyUI image batch.
+
 ### 2026-07-04
 - **English**: Added **MSR Identity Only** node (`TD_MSRIdentityOnly`) for LTX IC-LoRA workflows. It builds a subject-only reference frame sequence from up to 4 character images, without requiring a background image. This is intended for workflows where the TD four-grid guide controls scene/storyboard/composition, while MSR/IC-LoRA controls character identity consistency.
 - **中文**: 新增 **MSR Identity Only** (`TD_MSRIdentityOnly`) 节点,用于 LTX IC-LoRA / MSR 人物一致性工作流。节点可接入最多 4 张人物参考图,生成仅包含主体身份参考的帧序列,不再要求传入 background 背景图。适合“四宫格负责场景/分镜/构图,MSR/IC-LoRA 只负责人物一致性”的工作流。
